@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExoAPI", "ExoAPI\ExoAPI.csproj", "{62003E72-CD63-4308-8622-6B6DCD9480BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62003E72-CD63-4308-8622-6B6DCD9480BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62003E72-CD63-4308-8622-6B6DCD9480BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62003E72-CD63-4308-8622-6B6DCD9480BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62003E72-CD63-4308-8622-6B6DCD9480BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AD0B743-D0D2-4E00-9450-3E3C85F01708}
+	EndGlobalSection
+EndGlobal
