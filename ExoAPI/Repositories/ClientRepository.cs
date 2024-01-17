@@ -1,4 +1,5 @@
 ﻿using ExoAPI.Context;
+using ExoAPI.DTOs;
 using ExoAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,15 +19,15 @@ namespace ExoAPI.Repositories
             await context.SaveChangesAsync();
             return client;
         }
-
-        public async Task<List<Client>> GetAllAsync()
+        
+        public async Task<List<GetAllClientDTO>> GetAllAsync()
         {
-            return await context.Clients.ToListAsync();
+            return await context.Clients.Select(c => new GetAllClientDTO { Name = c.Name , Age = c.Age}).ToListAsync();
         }
 
         public async Task<Client> GetClientByIdAsync(int id)
         {
-            return await context.Clients.FirstOrDefaultAsync(c => c.Id == id);
+            return await context.Clients.Include(c => c.Orders).FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<Client> UpdateClientAsync(Client client)

@@ -15,8 +15,13 @@ namespace ExoAPI.Controllers
         {
             clientRepository = IClientRepository;
         }
+
+        /// <summary>
+        /// Get All Client
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<List<Client>>> GetAll()
         {
             return Ok(await clientRepository.GetAllAsync());
         }

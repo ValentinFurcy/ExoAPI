@@ -60,6 +60,63 @@ namespace ExoAPI.Migrations
                             Name = "Dupont"
                         });
                 });
+
+            modelBuilder.Entity("ExoAPI.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClientId = 1,
+                            Number = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClientId = 2,
+                            Number = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClientId = 3,
+                            Number = 3
+                        });
+                });
+
+            modelBuilder.Entity("ExoAPI.Models.Order", b =>
+                {
+                    b.HasOne("ExoAPI.Models.Client", "client")
+                        .WithMany("Orders")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("client");
+                });
+
+            modelBuilder.Entity("ExoAPI.Models.Client", b =>
+                {
+                    b.Navigation("Orders");
+                });
 #pragma warning restore 612, 618
         }
     }
