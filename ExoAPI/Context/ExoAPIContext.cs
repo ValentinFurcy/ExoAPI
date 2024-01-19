@@ -5,12 +5,22 @@ namespace ExoAPI.Context
 {
     public class ExoAPIContext : DbContext
     {
+        public ExoAPIContext() 
+        {
+        }
+
+        public ExoAPIContext(DbContextOptions<ExoAPIContext> options) 
+            : base(options) 
+        {
+        }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Data Source=(localdb)\MSSQLLOCALDB;Initial Catalog=ExoAPI;Integrated Security=True");
+            if (!optionsBuilder.IsConfigured)
+                optionsBuilder.UseSqlServer(connectionString: @"Data Source=(localdb)\MSSQLLOCALDB;Initial Catalog=ExoAPI;Integrated Security=True");
+
 
             base.OnConfiguring(optionsBuilder);
         }
